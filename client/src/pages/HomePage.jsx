@@ -69,7 +69,7 @@ const HomePage = () => {
         </div>
 
         <div className="container px-4 md:px-6 relative z-10">
-          <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
+          <div className="grid gap-6 md:grid-cols-2 lg:gap-12 items-center">
             <div className="space-y-4">
               <div className="inline-block bg-yellow-400 text-navy-900 px-3 py-1 rounded-full text-sm font-medium mb-2">
                 Career Guidance for Classes 8-12
@@ -110,113 +110,8 @@ const HomePage = () => {
               </div>
             </div>
 
-            <div className="relative h-[400px] md:h-[500px] lg:h-[600px]">
-              <div className="absolute inset-0">
-                {/* Main illustration */}
-                <div className="relative h-full w-full">
-                  {/* Background circle */}
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[400px] md:h-[400px] bg-navy-50 rounded-full border border-navy-100"></div>
-
-                  {/* Student figure */}
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    {/* Head */}
-                    <div className="relative">
-                      <div className="w-24 h-24 bg-yellow-100 rounded-full mx-auto"></div>
-                      <div className="absolute top-6 left-6 w-4 h-4 bg-navy-900 rounded-full"></div>
-                      <div className="absolute top-6 right-6 w-4 h-4 bg-navy-900 rounded-full"></div>
-                      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 w-8 h-2 bg-navy-900 rounded-full"></div>
-                    </div>
-
-                    {/* Body */}
-                    <div className="w-32 h-40 bg-yellow-400 rounded-t-lg mt-2 relative">
-                      {/* Arms */}
-                      <div className="absolute -left-12 top-4 w-12 h-6 bg-yellow-400 rounded-full"></div>
-                      <div className="absolute -right-12 top-4 w-12 h-6 bg-yellow-400 rounded-full"></div>
-
-                      {/* Backpack */}
-                      <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-24 h-8 bg-navy-900 rounded-t-lg z-[-1]"></div>
-                      <div className="absolute top-6 left-1/2 transform -translate-x-1/2 w-24 h-20 bg-navy-900 rounded-lg z-[-1]"></div>
-                    </div>
-
-                    {/* Legs */}
-                    <div className="flex justify-center space-x-2">
-                      <div className="w-8 h-20 bg-navy-900"></div>
-                      <div className="w-8 h-20 bg-navy-900"></div>
-                    </div>
-                  </div>
-
-                  {/* Career paths floating around */}
-                  <div className="absolute top-[10%] left-[10%] transform -rotate-12 animate-float">
-                    <div className="bg-white p-4 rounded-lg shadow-lg border-2 border-navy-900">
-                      <div className="text-2xl mb-1">👩‍⚕️</div>
-                      <div className="text-navy-900 font-bold">Medicine</div>
-                    </div>
-                  </div>
-
-                  <div className="absolute top-[15%] right-[10%] transform rotate-6 animate-float-delay-1">
-                    <div className="bg-white p-4 rounded-lg shadow-lg border-2 border-navy-900">
-                      <div className="text-2xl mb-1">👩‍💻</div>
-                      <div className="text-navy-900 font-bold">Technology</div>
-                    </div>
-                  </div>
-
-                  <div className="absolute bottom-[20%] left-[15%] transform rotate-12 animate-float-delay-2">
-                    <div className="bg-white p-4 rounded-lg shadow-lg border-2 border-navy-900">
-                      <div className="text-2xl mb-1">👨‍🏫</div>
-                      <div className="text-navy-900 font-bold">Education</div>
-                    </div>
-                  </div>
-
-                  <div className="absolute bottom-[25%] right-[15%] transform -rotate-6 animate-float-delay-3">
-                    <div className="bg-white p-4 rounded-lg shadow-lg border-2 border-navy-900">
-                      <div className="text-2xl mb-1">👩‍🔬</div>
-                      <div className="text-navy-900 font-bold">Science</div>
-                    </div>
-                  </div>
-
-                  <div className="absolute top-[40%] left-[5%] transform rotate-3 animate-float-delay-4">
-                    <div className="bg-white p-4 rounded-lg shadow-lg border-2 border-navy-900">
-                      <div className="text-2xl mb-1">👨‍💼</div>
-                      <div className="text-navy-900 font-bold">Business</div>
-                    </div>
-                  </div>
-
-                  <div className="absolute top-[45%] right-[5%] transform -rotate-3 animate-float-delay-5">
-                    <div className="bg-white p-4 rounded-lg shadow-lg border-2 border-navy-900">
-                      <div className="text-2xl mb-1">👩‍🎨</div>
-                      <div className="text-navy-900 font-bold">Arts</div>
-                    </div>
-                  </div>
-
-                  {/* Connecting lines (paths) */}
-                  <svg
-                    className="absolute inset-0 w-full h-full"
-                    viewBox="0 0 500 500"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M250 250 L100 100" stroke="#0a192f" strokeWidth="2" strokeDasharray="5 5" />
-                    <path d="M250 250 L400 100" stroke="#0a192f" strokeWidth="2" strokeDasharray="5 5" />
-                    <path d="M250 250 L100 400" stroke="#0a192f" strokeWidth="2" strokeDasharray="5 5" />
-                    <path d="M250 250 L400 400" stroke="#0a192f" strokeWidth="2" strokeDasharray="5 5" />
-                    <path d="M250 250 L50 250" stroke="#0a192f" strokeWidth="2" strokeDasharray="5 5" />
-                    <path d="M250 250 L450 250" stroke="#0a192f" strokeWidth="2" strokeDasharray="5 5" />
-                  </svg>
-
-                  {/* Progress steps at bottom */}
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex space-x-4">
-                    <div className="bg-white p-3 rounded-lg shadow-md border border-navy-100">
-                      <div className="text-navy-900 font-bold">Explore</div>
-                    </div>
-                    <div className="bg-white p-3 rounded-lg shadow-md border border-navy-100">
-                      <div className="text-navy-900 font-bold">Connect</div>
-                    </div>
-                    <div className="bg-white p-3 rounded-lg shadow-md border border-navy-100">
-                      <div className="text-navy-900 font-bold">Succeed</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="hidden relative h-[300px] md:h-[400px] lg:h-[600px] md:block ">
+              <img src="/personal growth-bro.svg" alt="Career Guidance" className="absolute inset-0 w-full h-full object-cover rounded-lg" />
             </div>
           </div>
 
@@ -406,19 +301,19 @@ const HomePage = () => {
                 name: "Priya S.",
                 quote:
                   "The counseling session helped me understand which engineering branch would be best for me based on my interests in mathematics and problem-solving.",
-                image: "/placeholder.svg?height=80&width=80",
+                image: "personal growth-bro.svg?height=80&width=80",
               },
               {
                 name: "Rahul M.",
                 quote:
                   "I was confused between Commerce and Arts. My counselor helped me see how my communication skills could be valuable in a business career.",
-                image: "/placeholder.svg?height=80&width=80",
+                image: "/personal growth-bro.svg?height=80&width=80",
               },
               {
                 name: "Ananya K.",
                 quote:
                   "The career assessment tests and the follow-up session gave me clarity about pursuing research in biological sciences.",
-                image: "/placeholder.svg?height=80&width=80",
+                image: "/personal growth-bro.svg?height=80&width=80",
               },
             ].map((testimonial, index) => (
               <Card key={index} className="flex flex-col p-6">
