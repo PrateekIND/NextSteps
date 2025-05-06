@@ -12,19 +12,19 @@ const HomePage = () => {
     {
       name: "Dr. Divyanshi Tomar",
       role: "Medical Professional",
-      image: "../../public/image/Divyashi tomar.jpeg",
+      image: "/image/Divyashi tomar.jpeg",
       bio: "20+ years in healthcare, specializing in career guidance for medical aspirants.",
     },
     {
       name: "Yash Tyagi",
       role: "Tech Entrepreneur",
-      image: "../../public/image/yash Tyagi.jpeg",
+      image:"/image/yash Tyagi.jpeg",
       bio: "Founded 3 successful startups and mentored over 200 young tech professionals.",
     },
     {
       name: "Ashtha Tyagi",
       role: "Finance Expert",
-      image: "../../public/image/Priya.jpeg",
+      image: "/image/Priya.jpeg",
       bio: "15 years in investment banking, helping students navigate the world of finance.",
     },
   ];
