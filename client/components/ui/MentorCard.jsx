@@ -7,11 +7,11 @@ import { Link } from "react-router-dom"; // or "next/link" if you're using Next.
 const MentorCard = ({ name, role, image, bio }) => {
   return (
     <div className="bg-white rounded-xl shadow-md p-6 text-center flex flex-col justify-between h-full">
-      <div>
+      <div className="text-center">
         <img
           src={image}
           alt={name}
-          className="w-32 h-32 mx-auto rounded-full object-cover mb-4"
+          className="w-32 h-32 mx-auto rounded-full object-cover object-[5%_15%] mb-4"
         />
         <h3 className="text-xl font-semibold text-slate-800">{name}</h3>
         <p className="text-blue-500 text-sm mb-2">{role}</p>

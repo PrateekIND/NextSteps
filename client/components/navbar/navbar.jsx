@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import Button from "@/components/ui/button";
+import React from "react";
+import { Link } from "react-router-dom"; // If you're using React Router
+import Button from "@/components/ui/button"; // Your custom Button component
+import { Compass } from "lucide-react"; // Assuming you're using lucide-react for icons
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -17,11 +18,8 @@ const Navbar = () => {
       <div className="container mx-auto px-4 flex h-16 items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-            strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-blue-500">
-            <path strokeLinecap="round" strokeLinejoin="round"
-              d="M12 6v6h4.5m4.5 0A9 9 0 1112 3a9 9 0 019 9z" />
-          </svg>
+          <Compass className="h-6 w-6 text-blue-500" />
+
           <span className="text-xl font-semibold tracking-tight">NextStep</span>
         </Link>
 

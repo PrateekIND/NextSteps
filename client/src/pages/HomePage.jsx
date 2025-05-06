@@ -18,7 +18,7 @@ const HomePage = () => {
     {
       name: "Yash Tyagi",
       role: "Tech Entrepreneur",
-      image: "/image/yash Tyagi.jpeg",
+      image:"/image/yash Tyagi.jpeg",
       bio: "Founded 3 successful startups and mentored over 200 young tech professionals.",
     },
     {
