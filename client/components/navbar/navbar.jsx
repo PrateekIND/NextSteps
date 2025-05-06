@@ -37,8 +37,9 @@ const Navbar = () => {
         {/* Desktop Buttons */}
         <div className="hidden md:flex items-center gap-4">
           <Button2
-            
-            className="gap-1 border "
+            asChild
+            variant="outline"
+            className="gap-1  "
           >
             <Link to="/join-mentor" className="flex items-center text-blue-500">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none"
