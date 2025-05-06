@@ -4,8 +4,8 @@ import { ArrowRight, UserPlus, CheckCircle, Compass, MessageSquare, ThumbsUp } f
 import Button from "@/components/ui/button"; // Your custom Button component
 import { Lightbulb, Globe, Users, BookOpen ,Briefcase, Code, Paintbrush,ChevronRight } from "lucide-react";
 import ServiceCard from "../../components/ui/ServiceCard";
- // Adjust this based on your component setup
 import MentorCard from "../../components/ui/MentorCard";
+
 
 const HomePage = () => {
   const mentors = [
@@ -53,42 +53,51 @@ const HomePage = () => {
   ];
   return (
     <>
-      <section className="w-full py-12 md:py-10 lg:py-12 xl:py-18 bg-gradient-to-b from-white to-slate-50">
-          <div className="container px-4 md:px-6 mx-auto">
-            <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl text-slate-800">
-                    Take the Right Step Toward Your Future
-                  </h1>
-                  <p className="max-w-[600px] text-slate-600 md:text-xl">
-                    Discover your ideal career path with personalized guidance from industry experts who've been where you want to go.
-                  </p>
-                </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button asChild className="gap-1">
-                    <a href="/explore">
-                      Explore Careers
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </a>
-                  </Button>
-                  <Button asChild className="border border-blue-500 text-blue-500 hover:bg-blue-50">
-                    <a href="/book">Book a Session</a>
-                  </Button>
-                </div>
-              </div>
-              <img
-                src="/placeholder.svg?height=550&width=550"
-                width={550}
-                height={550}
-                alt="Students discussing career options"
-                className="mx-auto aspect-square overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
-              />
-            </div>
-          </div>
-        </section>
+      <section className="w-full py-10 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-b from-white to-slate-50">
+  <div className="container px-4 md:px-6 mx-auto">
+    <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16 items-center">
+      
+      {/* LEFT: TEXT + BUTTONS */}
+      <div className="flex flex-col justify-center space-y-6 text-center lg:text-left">
+        <div className="space-y-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight text-slate-800">
+            Take the Right Step Toward Your Future
+          </h1>
+          <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-xl mx-auto lg:mx-0">
+            Discover your ideal career path with personalized guidance from industry experts who've been where you want to go.
+          </p>
+        </div>
+
+        {/* BUTTONS */}
+        <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+          <Button asChild className="gap-1">
+            <a href="/explore">
+              Explore Careers
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </Button>
+          <Button asChild className="border border-blue-500 text-blue-500 hover:bg-blue-50">
+            <a href="/book">Book a Session</a>
+          </Button>
+        </div>
+      </div>
+
+      {/* RIGHT: IMAGE */}
+      <div>
+        <img
+          src="/placeholder.svg?height=550&width=550"
+          width={550}
+          height={550}
+          alt="Students discussing career options"
+          className="w-full max-w-[450px] mx-auto rounded-xl object-cover aspect-square"
+        />
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
