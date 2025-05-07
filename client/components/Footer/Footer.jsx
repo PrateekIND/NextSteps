@@ -63,7 +63,7 @@ const Footer = () => {
                 <span>support@nextstep.com</span>
               </li>
               <li className="flex items-start space-x-2">
-                <LocateFixedIcon className="h-4 w-4" />
+                <MapPin className="h-4 w-4" />
                 <span>Crossing Republic Ghaziabad Uttar Pradesh 201016</span>
               </li>
             </ul>
