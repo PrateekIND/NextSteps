@@ -305,6 +305,24 @@ const HomePage = () => {
           </div>
         </section>
 
+    <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-slate-800">
+                  What Our Students Say
+                </h2>
+                <p className="max-w-[900px] text-slate-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  Success stories from students who found their path with NextStep
+                </p>
+              </div>
+            </div>
+            <div className="mx-auto max-w-4xl py-12">
+              <TestimonialSlider />
+            </div>
+          </div>
+        </section>
+
     <section className="w-full py-12 md:py-24 lg:py-32 bg-slate-50">
   <div className="container px-4 md:px-6">
     <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
