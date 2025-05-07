@@ -8,11 +8,11 @@ import Footer from '@/components/Footer/Footer'
 function App() {
 
   return (
-    <>
+    <div className='font-sans'>
       <Navbar />
       <HomePage />
       <Footer />
-    </>
+    </div>
   )
 }
 

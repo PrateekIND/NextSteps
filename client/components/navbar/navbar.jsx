@@ -26,7 +26,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex gap-6">
+        <nav className="hidden min-[780]::flex gap-6">
           {navItems.map((item, index) => (
             <Link key={index} to={item.path} className="text-sm font-medium transition-colors hover:text-blue-500">
               {item.name}
