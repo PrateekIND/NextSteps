@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 // Replace these with your own UI components or fallback to basic ones
-import Button from "@/components/ui/button";
+import Button2 from "@/components/ui/button2";
 import { Card, CardContent } from "@/components/ui/card";
 
 const testimonials = [
@@ -83,37 +83,38 @@ export default function TestimonialSlider() {
           ))}
         </div>
       </div>
-      <div className="mt-6 flex justify-center gap-2">
-        <Button
+      <div className="mt-6 flex items-center  justify-center gap-2">
+        <Button2
           variant="outline"
           size="icon"
-          className="rounded-full border-blue-100 text-blue-500 hover:bg-blue-50"
+          
+          className="rounded-full  px-0 py-0 pt-0 pb-0 pl-3 pr-3 "
           onClick={prev}
           aria-label="Previous testimonial"
         >
           <ChevronLeft className="h-4 w-4" />
-        </Button>
+        </Button2>
         {testimonials.map((_, index) => (
-          <Button
+          <div
             key={index}
             variant="ghost"
             size="sm"
-            className={`h-2 w-2 rounded-full p-0 ${
+            className={` h-2 w-2 rounded-full pl-0 pr-0 ${
               index === current ? "bg-blue-500" : "bg-blue-100"
             }`}
             onClick={() => setCurrent(index)}
             aria-label={`Go to testimonial ${index + 1}`}
           />
         ))}
-        <Button
+        <Button2
           variant="outline"
           size="icon"
-          className="rounded-full border-blue-100 text-blue-500 hover:bg-blue-50"
+          className="rounded-full px-0 py-0 pt-0 pb-0 pl-3 pr-3"
           onClick={next}
           aria-label="Next testimonial"
         >
           <ChevronRight className="h-4 w-4" />
-        </Button>
+        </Button2>
       </div>
     </div>
   );

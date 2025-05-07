@@ -1,26 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  ArrowRight,
-  Globe,
-  Users,
-  BookOpen,
-  Code,
-  Paintbrush,
+import { ArrowRight, UserPlus, CheckCircle, Compass, MessageSquare, ThumbsUp, Code,
+  Stethoscope,
   Briefcase,
-  ChevronRight,
-} from "lucide-react";
-
-import Button from "@/components/ui/button";
-import Button2 from "@/components/ui/button2";
-import ServiceCard from "@/components/ui/ServiceCard";
-import MentorCard from "@/components/ui/MentorCard";
-import {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-} from "@/components/ui/accordion";
+  Palette,
+  Settings,
+  BookOpenCheck, } from "lucide-react"
+import Button from "@/components/ui/button"; // Your custom Button component
+import Button2 from "@/components/ui/button2"; // Your custom Button component
+import { Lightbulb, Globe, Users, BookOpen , Paintbrush,ChevronRight } from "lucide-react";
+import ServiceCard from "../../components/ui/ServiceCard";
+import MentorCard from "../../components/ui/MentorCard";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import TestimonialSlider from "@/components/TestimonialSlider";
 
 const HomePage = () => {
@@ -55,18 +46,44 @@ const HomePage = () => {
       tags: ["Software Engineering", "Data Science", "Cybersecurity"],
     },
     {
-      id: "graphic-designer",
-      icon: <Paintbrush className="h-6 w-6 text-pink-600" />,
-      title: "Graphic Designer",
-      description: "Bring ideas to life through design.",
-      tags: ["Creativity", "Aesthetics", "Communication"],
+      id: "Healthcare",
+      icon: <Stethoscope className="h-6 w-6 text-pink-600" />,
+      title: "Healthcare",
+      description:
+        "Discover careers in medicine, nursing, research, and public health administration.",
+      tags: ["Medicine", "Research", "Public Health"],
     },
     {
-      id: "project-manager",
+      id: "Business",
       icon: <Briefcase className="h-6 w-6 text-green-600" />,
-      title: "Project Manager",
-      description: "Lead teams to success and deliver results.",
-      tags: ["Leadership", "Organization", "Planning"],
+      title: "Business",
+      description:
+        "Explore careers in finance, marketing, management, and entrepreneurship.",
+      tags: ["Finance", "Marketing", "Management"],
+    },
+    {
+      id: "Creative Arts",
+      icon: <Palette className="h-6 w-6 text-purple-600" />,
+      title: "Creative Arts",
+      description:
+        "Discover careers in design, media production, writing, and entertainment.",
+      tags: ["Design", "Media", "Entertainment"],
+    },
+    {
+      id: "Engineering",
+      icon: <Settings className="h-6 w-6 text-yellow-600" />,
+      title: "Engineering",
+      description:
+        "Explore careers in civil, mechanical, electrical, and aerospace engineering.",
+      tags: ["Civil", "Mechanical", "Electrical"],
+    },
+    {
+      id: "Education",
+      icon: <BookOpenCheck className="h-6 w-6 text-blue-600" />,
+      title: "Education",
+      description:
+        "Discover careers in teaching, educational research, and school administration.",
+      tags: ["Teaching", "Research", "Administration"],
     },
   ];
 
@@ -74,32 +91,37 @@ const HomePage = () => {
     {
       question: "How does NextStep's career counseling work?",
       answer:
-        "Our career counseling process begins with an assessment of your interests, skills, and goals to provide tailored guidance and resources.",
+        "Our career counseling process begins with an assessment of your interests, skills, and goals. We then match you with a mentor who specializes in your areas of interest. Through one-on-one sessions,our mentors provide personalized guidance, industry insights, and practical advice to help you make informed career decisions.",
+        
     },
     {
       question: "Who are the mentors at NextStep?",
       answer:
-        "Our mentors are industry professionals with at least 5+ years of experience who are passionate about helping students succeed.",
+        "Our mentors are industry professionals with at least 5+ years of experience in their respective fields. They include executives, entrepreneurs, researchers, educators, and other experts who are passionate about guiding students. All mentors undergo a thorough vetting process to ensure they can provide valuable insights and guidance",
     },
     {
       question: "How much does career counseling cost?",
       answer:
-        "We offer various packages to suit different needs and budgets, including free introductory sessions.",
+        "We offer various packages to suit different needs and budgets.Our basic package starts at $49 for a one-time session, while our comprehensive package includes multiple sessions, career assessments, and ongoing support for $199. We also offer scholarships and financial aid for eligible students.",
+        
     },
     {
       question: "Can NextStep help with college applications?",
       answer:
-        "Yes, we provide guidance on college applications, essay reviews, and selecting the right programs based on your goals.",
+        "Yes, we provide guidance on college applications, including selecting the right institutions, preparing application materials, and interview preparation. Our mentors can help you align your educational choices with your career goals and highlight your strengths in applications.",
+        
     },
     {
       question: "How do I become a mentor at NextStep?",
       answer:
-        "To become a mentor, you should have at least 5 years of professional experience and a passion for helping students grow.",
+        `To become a mentor, you should have at least 5 years of professional experience in your field and a passion for guiding students. Click on the "Join as Mentor" button to start the application process. You'll need to complete a profile, undergo an interview, and provide references. Once approved, you can set your availability and start mentoring sessions.`,
+        
     },
     {
       question: "Is NextStep available internationally?",
       answer:
-        "Yes, NextStep services are available globally, and sessions can be scheduled according to your time zone.",
+        "Yes, NextStep services are available globally. All mentoring sessions are conducted online, making it accessible to students worldwide. We have mentors from various countries who can provide insights into global career opportunities and region-specific guidance.",
+        
     },
   ];
 
