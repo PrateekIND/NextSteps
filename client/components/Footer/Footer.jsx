@@ -2,7 +2,7 @@ import React from "react";
 import { Compass } from "lucide-react";
 import { Link } from "react-router-dom"; 
 import Button from "@/components/ui/button"; 
-import { Facebook, Instagram, Twitter, Linkedin , LocateFixedIcon , PhoneCallIcon , MailIcon} from 'lucide-react';
+import { Facebook, Instagram, Twitter, Linkedin , MapPin , PhoneCallIcon , MailIcon} from 'lucide-react';
 
 const Footer = () => {
   return (
