@@ -43,8 +43,6 @@ const HomePage = () => {
       title: "Technology",
       description:
         "Explore careers in software development, data science, cybersecurity, and AI.",
-      description:
-        "Explore careers in software development, data science, cybersecurity, and AI.",
       tags: ["Software Engineering", "Data Science", "Cybersecurity"],
     },
     {
@@ -94,7 +92,7 @@ const HomePage = () => {
       question: "How does NextStep's career counseling work?",
       answer:
         "Our career counseling process begins with an assessment of your interests, skills, and goals. We then match you with a mentor who specializes in your areas of interest. Through one-on-one sessions,our mentors provide personalized guidance, industry insights, and practical advice to help you make informed career decisions.",
-        "Our career counseling process begins with an assessment of your interests, skills, and goals to provide tailored guidance and resources.",
+        
     },
     {
       question: "Who are the mentors at NextStep?",
@@ -105,25 +103,25 @@ const HomePage = () => {
       question: "How much does career counseling cost?",
       answer:
         "We offer various packages to suit different needs and budgets.Our basic package starts at $49 for a one-time session, while our comprehensive package includes multiple sessions, career assessments, and ongoing support for $199. We also offer scholarships and financial aid for eligible students.",
-        "We offer various packages to suit different needs and budgets, including free introductory sessions.",
+        
     },
     {
       question: "Can NextStep help with college applications?",
       answer:
         "Yes, we provide guidance on college applications, including selecting the right institutions, preparing application materials, and interview preparation. Our mentors can help you align your educational choices with your career goals and highlight your strengths in applications.",
-        "Yes, we provide guidance on college applications, essay reviews, and selecting the right programs based on your goals.",
+        
     },
     {
       question: "How do I become a mentor at NextStep?",
       answer:
         `To become a mentor, you should have at least 5 years of professional experience in your field and a passion for guiding students. Click on the "Join as Mentor" button to start the application process. You'll need to complete a profile, undergo an interview, and provide references. Once approved, you can set your availability and start mentoring sessions.`,
-        "To become a mentor, you should have at least 5 years of professional experience and a passion for helping students grow.",
+        
     },
     {
       question: "Is NextStep available internationally?",
       answer:
         "Yes, NextStep services are available globally. All mentoring sessions are conducted online, making it accessible to students worldwide. We have mentors from various countries who can provide insights into global career opportunities and region-specific guidance.",
-        "Yes, NextStep services are available globally, and sessions can be scheduled according to your time zone.",
+        
     },
   ];
 
