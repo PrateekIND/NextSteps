@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, UserPlus, CheckCircle, Compass, MessageSquare, ThumbsUp } from "lucide-react"
 import Button from "@/components/ui/button"; // Your custom Button component
 import Button2 from "@/components/ui/button2"; // Your custom Button component
+import Button2 from "@/components/ui/button2"; // Your custom Button component
 import { Lightbulb, Globe, Users, BookOpen ,Briefcase, Code, Paintbrush,ChevronRight } from "lucide-react";
 import ServiceCard from "../../components/ui/ServiceCard";
 import MentorCard from "../../components/ui/MentorCard";
@@ -35,7 +36,11 @@ const HomePage = () => {
   const careerData = [
     {
       id: "Technology",
+      id: "Technology",
       icon: <Code className="h-6 w-6 text-indigo-600" />,
+      title: "Technology",
+      description: "Explore careers in software development, data science, cybersecurity, and AI.",
+      tags: ["Software Engineering", "Data Science", "Cybersecurity"],
       title: "Technology",
       description: "Explore careers in software development, data science, cybersecurity, and AI.",
       tags: ["Software Engineering", "Data Science", "Cybersecurity"],
@@ -90,8 +95,44 @@ const HomePage = () => {
   ];
 
 
+
+  const faqData = [
+    {
+      question: "How does NextStep's career counseling work?",
+      answer:
+        "Our career counseling process begins with an assessment of your interests, skills, and goals...",
+    },
+    {
+      question: "Who are the mentors at NextStep?",
+      answer:
+        "Our mentors are industry professionals with at least 5+ years of experience...",
+    },
+    {
+      question: "How much does career counseling cost?",
+      answer:
+        "We offer various packages to suit different needs and budgets...",
+    },
+    {
+      question: "Can NextStep help with college applications?",
+      answer:
+        "Yes, we provide guidance on college applications...",
+    },
+    {
+      question: "How do I become a mentor at NextStep?",
+      answer:
+        "To become a mentor, you should have at least 5 years of professional experience...",
+    },
+    {
+      question: "Is NextStep available internationally?",
+      answer:
+        "Yes, NextStep services are available globally...",
+    },
+  ];
+
+
   return (
     <>
+     <section className="w-full py-10 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-b from-white to-slate-50">
      <section className="w-full py-10 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-b from-white to-slate-50">
   <div className="container px-4 md:px-6 mx-auto">
     <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16 items-center">
@@ -100,13 +141,18 @@ const HomePage = () => {
       <div className="flex flex-col justify-center space-y-6 text-center lg:text-left">
         <div className="space-y-4">
           <h1 className="text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-bold tracking-tight text-slate-800">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-bold tracking-tight text-slate-800">
             Take the Right Step Toward Your Future
           </h1>
+          <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-xl mx-auto lg:mx-0">
           <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-xl mx-auto lg:mx-0">
             Discover your ideal career path with personalized guidance from industry experts who've been where you want to go.
           </p>
         </div>
 
+        {/* BUTTONS - INLINE ON MOBILE TOO */}
+        <div className="flex flex-wrap justify-center lg:justify-start gap-4">
+          <Button asChild className="gap-1 whitespace-nowrap">
         {/* BUTTONS - INLINE ON MOBILE TOO */}
         <div className="flex flex-wrap justify-center lg:justify-start gap-4">
           <Button asChild className="gap-1 whitespace-nowrap">
@@ -122,7 +168,12 @@ const HomePage = () => {
             asChild
             className="border border-blue-500 text-blue-500 hover:bg-blue-50 whitespace-nowrap"
           >
+          <Button2
+            asChild
+            className="border border-blue-500 text-blue-500 hover:bg-blue-50 whitespace-nowrap"
+          >
             <a href="/book">Book a Session</a>
+          </Button2>
           </Button2>
         </div>
       </div>
@@ -130,6 +181,7 @@ const HomePage = () => {
       {/* RIGHT: IMAGE */}
       <div>
         <img
+          src="/image/Hero.png"
           src="/image/Hero.png"
           width={550}
           height={550}
@@ -140,6 +192,7 @@ const HomePage = () => {
     </div>
   </div>
 </section>
+
 
 
 
@@ -235,6 +288,32 @@ const HomePage = () => {
           </div>
 
           <div className="pt-8 pl-5 flex items-center text-purple-500 font-medium group-hover:translate-x-1 transition-transform">
+        className="rounded-[9px] border bg-white text-gray-800 shadow-sm overflow-hidden h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border-slate-200 group"
+      >
+        <div className="p-6 flex flex-col h-full justify-between">
+          <div className="flex items-start gap-4">
+            <div className="flex-shrink-0 w-16 h-16 rounded-[6px] bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center shadow-sm">
+              {career.icon}
+            </div>
+            <div className="flex-1">
+              <h3 className="text-xl pt-2 lg:pb-2 md:pb-1 xl:pb-4 font-bold text-slate-800 group-hover:text-purple-500 transition-colors">
+                {career.title}
+              </h3>
+              <p className="mt-2 lg:pb-2 md:pb-1 xl:pb-3 text-slate-600">{career.description}</p>
+              <div className="flex flex-wrap gap-2 mt-3">
+                {career.tags.map((tag, index) => (
+                  <span
+                    key={index}
+                    className="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="pt-8 pl-5 flex items-center text-purple-500 font-medium group-hover:translate-x-1 transition-transform">
             Explore Path <ChevronRight className="h-4 w-4 ml-1" />
           </div>
         </div>
@@ -244,6 +323,7 @@ const HomePage = () => {
 
   <div className="mt-12 flex justify-center">
     <Button2
+    <Button2
       asChild
       variant="outline"
       size="lg"
@@ -251,7 +331,9 @@ const HomePage = () => {
     >
       <Link to="/explore">
         View All Career Paths <ChevronRight className="h-4 w-4" />
+        View All Career Paths <ChevronRight className="h-4 w-4" />
       </Link>
+    </Button2>
     </Button2>
   </div>
 </section>
@@ -277,7 +359,9 @@ const HomePage = () => {
 
         <div className="flex justify-center gap-4">
           <Button2 variant="outline" className="gap-1 border-blue-500 text-blue-500 hover:bg-blue-50">
+          <Button2 variant="outline" className="gap-1 border-blue-500 text-blue-500 hover:bg-blue-50">
             View All Mentors <ArrowRight className="h-4 w-4" />
+          </Button2>
           </Button2>
           <Button className="gap-1 bg-blue-500 hover:bg-blue-600">
             <UserPlus className="h-4 w-4 mr-1" />
