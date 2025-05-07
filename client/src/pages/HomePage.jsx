@@ -195,11 +195,11 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="px-6 py-16 bg-gray-50">
+      <section className="px-6 sm:px-16 md:px-24  py-16 bg-gray-50">
       <div className="max-w-6xl mx-auto text-center mb-12">
-        <h2 className="text-4xl font-bold text-gray-800 mb-4">Explore Career Paths</h2>
+        <h2 className="text-3xl font-bold mb-4 sm:text-4xl md:text-5xl text-slate-800">Explore Career Paths</h2>
         <p className="text-gray-600 text-lg">
-          Find the career that matches your passion and skills 💼✨
+        Discover exciting opportunities across various fields and find your perfect match
         </p>
       </div>
 
@@ -256,7 +256,7 @@ const HomePage = () => {
     </section>
 
       {/* MENTORS */}
-      <section className="py-12 md:py-24 lg:py-32 bg-white">
+      <section className="px-6 md:px-18 lg:px-24 py-12 md:py-24 lg:py-32 bg-white">
         <div className="container px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-slate-800">
