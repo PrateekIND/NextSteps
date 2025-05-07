@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 // Replace these with your own UI components or fallback to basic ones
-import { Button } from "@/components/ui/button";
+import Button from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 const testimonials = [
@@ -10,7 +10,7 @@ const testimonials = [
     id: 1,
     name: "Michael Brown",
     role: "Computer Science Student",
-    image: "/placeholder.svg",
+    image: "/image/Divyashi tomar.jpeg",
     quote:
       "NextStep helped me narrow down my interests and find the perfect tech specialization. My mentor provided insights I couldn't find anywhere else.",
   },
@@ -18,7 +18,7 @@ const testimonials = [
     id: 2,
     name: "Emma Wilson",
     role: "High School Senior",
-    image: "/placeholder.svg",
+    image: "/image/Priya.jpeg",
     quote:
       "I was completely lost about which stream to choose. The career exploration tools and my session with a mentor gave me clarity and confidence.",
   },
@@ -26,7 +26,7 @@ const testimonials = [
     id: 3,
     name: "Raj Patel",
     role: "Business Management Graduate",
-    image: "/placeholder.svg",
+    image: "/image/yash Tyagi.jpeg",
     quote:
       "The industry insights and networking opportunities through NextStep were invaluable. I secured my dream job within months of graduation.",
   },
@@ -71,9 +71,7 @@ export default function TestimonialSlider() {
                   <img
                     src={testimonial.image}
                     alt={testimonial.name}
-                    width={60}
-                    height={60}
-                    className="rounded-full"
+                    className="w-16 h-16 rounded-full object-cover object-[5%_15%]"
                   />
                   <div className="text-left">
                     <h4 className="font-semibold text-slate-800">{testimonial.name}</h4>

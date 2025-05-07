@@ -1,6 +1,6 @@
 // components/MentorCard.jsx
 import React from "react";
-import  Button  from "@/components/ui/button"; // Adjust if needed
+import  Button2  from "@/components/ui/button2"; // Adjust if needed
 import { Calendar } from "lucide-react";
 import { Link } from "react-router-dom"; // or "next/link" if you're using Next.js
 
@@ -20,7 +20,7 @@ const MentorCard = ({ name, role, image, bio }) => {
 
       {/* 🚀 Book Button */}
       <div className="mt-6">
-        <Button
+        <Button2
           asChild
           variant="outline"
           className="w-full gap-2 border-blue-500 text-blue-500 hover:bg-blue-50"
@@ -29,7 +29,7 @@ const MentorCard = ({ name, role, image, bio }) => {
             <Calendar className="h-4 w-4" />
             Book a Session
           </Link>
-        </Button>
+        </Button2>
       </div>
     </div>
   );
