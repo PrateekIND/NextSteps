@@ -137,7 +137,7 @@ const HomePage = () => {
       {/* HERO */}
       <section className="w-full py-10 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-b from-white to-slate-50">
         <div className="container px-4 md:px-6 mx-auto">
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:gap-16 items-center">
             <div className="flex flex-col justify-center space-y-6 text-center lg:text-left">
               <div className="space-y-4">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-bold tracking-tight text-slate-800">
@@ -191,7 +191,7 @@ const HomePage = () => {
       </section>
 
       {/* SERVICES */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-slate-50">
+      <section className="w-full px-6 md:px-12 lg:px-24 py-12 md:py-24 lg:py-32 bg-slate-50">
         <div className="container px-4 md:px-6">
           <div className="text-center space-y-4 mb-12">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-slate-800">
@@ -201,7 +201,7 @@ const HomePage = () => {
               Comprehensive career guidance tailored to your unique journey
             </p>
           </div>
-          <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
+          <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 md:grid-cols-2 md:gap-9 lg:grid-cols-3 lg:gap-12">
             <ServiceCard
               icon={Globe}
               title="Explore Careers"

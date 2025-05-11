@@ -2,7 +2,7 @@ import React from "react";
 import { Compass } from "lucide-react";
 import { Link } from "react-router-dom"; 
 import Button from "@/components/ui/button"; 
-import { Facebook, Instagram, Twitter, Linkedin , LocateFixedIcon , PhoneCallIcon , MailIcon} from 'lucide-react';
+import { Facebook, Instagram, Twitter, Linkedin , MapPin , PhoneCallIcon , MailIcon} from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -63,7 +63,7 @@ const Footer = () => {
                 <span>support@nextstep.com</span>
               </li>
               <li className="flex items-start space-x-2">
-                <LocateFixedIcon className="h-4 w-4" />
+                <MapPin className="h-4 w-4" />
                 <span>Crossing Republic Ghaziabad Uttar Pradesh 201016</span>
               </li>
             </ul>

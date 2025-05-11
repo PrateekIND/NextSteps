@@ -7,7 +7,7 @@ import Footer from '@/components/Footer/Footer';
 
 function App() {
   return (
-    <>
+    <div className='font-sans'>
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} /> {/* Home page route */}
