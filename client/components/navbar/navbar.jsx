@@ -20,9 +20,12 @@ const Navbar = () => {
       <div className="container mx-auto px-4 flex h-16 items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
-          <Compass className="h-6 w-6 text-blue-500" />
-
-          <span className="text-xl font-semibold tracking-tight">NextStep</span>
+          {/* <Compass className="h-6 w-6 text-blue-500" /> */}
+        <img
+          src="/image/logo.png"
+          alt="Logo"
+          className="h-36 w-auto object-contain"
+        />
         </Link>
 
         {/* Desktop Nav */}

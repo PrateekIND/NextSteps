@@ -14,7 +14,7 @@ function App() {
         <Route path="/career/:id" element={<Path />} /> {/* Career path page */}
       </Routes>
       <Footer />
-    </>
+    </div>
   );
 }
 
