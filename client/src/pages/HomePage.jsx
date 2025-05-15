@@ -135,10 +135,10 @@ const HomePage = () => {
   return (
     <>
       {/* HERO */}
-      <section className="w-full py-10 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-b from-white to-slate-50">
+      <section className="w-full bg-gradient-to-b from-white to-slate-50">
         <div className="container px-4 md:px-6 mx-auto">
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:gap-16 items-center">
-            <div className="flex flex-col justify-center space-y-6 text-center lg:text-left">
+          <div className="flex flex-col md:flex-row gap-10 justify-center items-center place-content-center">
+            <div className="py-8 sm:py-12 flex flex-col justify-center space-y-6 text-center lg:text-left flex-1 lg:pt-[-8px]">
               <div className="space-y-4">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-bold tracking-tight text-slate-800">
                   Take the Right Step Toward Your Future
@@ -162,21 +162,22 @@ const HomePage = () => {
                 </Button2>
               </div>
             </div>
-            <div>
+            <div className="py-8 sm:py-12 lg:py-14 bg-blend-multiply flex-1">
               <img
-                src="/image/Hero.png"
+                src="/image/hero.jpg"
                 width={550}
                 height={550}
                 alt="Students discussing career options"
-                className="w-full max-w-[450px] mx-auto rounded-xl object-cover aspect-square"
+                className="w-full max-w-[550px] mx-auto rounded-xl object-contain"
               />
+
             </div>
           </div>
         </div>
       </section>
 
       {/* ABOUT */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
+      {/* <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
         <div className="container px-4 md:px-6 text-center">
           <div className="inline-flex items-center rounded-full border border-blue-100 bg-blue-50 px-2.5 py-0.5 text-xs font-semibold text-blue-500">
             About NextStep
@@ -188,10 +189,10 @@ const HomePage = () => {
             NextStep helps students explore career options, understand future opportunities, and connect with expert mentors who can provide personalized guidance.
           </p>
         </div>
-      </section>
+      </section> */}
 
       {/* SERVICES */}
-      <section className="w-full px-6 md:px-12 lg:px-24 py-12 md:py-24 lg:py-32 bg-slate-50">
+      <section className="w-full px-6 md:px-12 lg:px-24 py-12 md:py-24 lg:py-32 bg-background">
         <div className="container px-4 md:px-6">
           <div className="text-center space-y-4 mb-12">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-slate-800">
