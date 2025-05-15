@@ -6,6 +6,7 @@ import { ArrowRight, UserPlus, CheckCircle, Compass, MessageSquare, ThumbsUp, Co
   Palette,
   Settings,
   BookOpenCheck, } from "lucide-react"
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import Button from "@/components/ui/button"; // Your custom Button component
 import Button2 from "@/components/ui/button2"; // Your custom Button component
 import { Lightbulb, Globe, Users, BookOpen , Paintbrush,ChevronRight } from "lucide-react";
@@ -13,13 +14,13 @@ import ServiceCard from "../../components/ui/ServiceCard";
 import MentorCard from "../../components/ui/MentorCard";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import TestimonialSlider from "@/components/TestimonialSlider";
-import { useDispatch } from 'react-redux';
-import { setCareerId } from '../redux/exploreSlice';
-import { useNavigate } from 'react-router-dom';
+
+
+
 
 
 const HomePage = () => {
-  const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
   const mentors = [
@@ -53,7 +54,7 @@ const HomePage = () => {
       tags: ["Software Engineering", "Data Science", "Cybersecurity"],
     },
     {
-      id: "Healthcare",
+      id: "healthcare",
       icon: <Stethoscope className="h-6 w-6 text-pink-600" />,
       title: "Healthcare",
       description:
@@ -61,7 +62,7 @@ const HomePage = () => {
       tags: ["Medicine", "Research", "Public Health"],
     },
     {
-      id: "Business",
+      id: "business",
       icon: <Briefcase className="h-6 w-6 text-green-600" />,
       title: "Business",
       description:
@@ -69,7 +70,7 @@ const HomePage = () => {
       tags: ["Finance", "Marketing", "Management"],
     },
     {
-      id: "Creative Arts",
+      id: "creative Arts",
       icon: <Palette className="h-6 w-6 text-purple-600" />,
       title: "Creative Arts",
       description:
@@ -77,7 +78,7 @@ const HomePage = () => {
       tags: ["Design", "Media", "Entertainment"],
     },
     {
-      id: "Engineering",
+      id: "engineering",
       icon: <Settings className="h-6 w-6 text-yellow-600" />,
       title: "Engineering",
       description:
@@ -85,7 +86,7 @@ const HomePage = () => {
       tags: ["Civil", "Mechanical", "Electrical"],
     },
     {
-      id: "Education",
+      id: "education",
       icon: <BookOpenCheck className="h-6 w-6 text-blue-600" />,
       title: "Education",
       description:
@@ -225,75 +226,76 @@ const HomePage = () => {
         </div>
       </section>
 
-<section className="px-6 sm:px-16 md:px-24 py-16 bg-gray-50">
-  <div className="max-w-6xl mx-auto text-center mb-12">
-    <h2 className="text-3xl font-bold mb-4 sm:text-4xl md:text-5xl text-slate-800">
-      Explore Career Paths
-    </h2>
-    <p className="text-gray-600 text-lg">
-      Discover exciting opportunities across various fields and find your perfect match
-    </p>
-  </div>
 
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-    {careerData.map((career) => (
-      <div
-        key={career.id}
-        className="rounded-[9px] border bg-white text-gray-800 shadow-sm overflow-hidden h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border-slate-200 group"
-      >
-        <div className="p-6 flex flex-col h-full justify-between">
-          <div className="flex items-start gap-4">
-            <div className="flex-shrink-0 w-16 h-16 rounded-[6px] bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center shadow-sm">
-              {career.icon}
-            </div>
-            <div className="flex-1">
-              <h3 className="text-xl pt-2 lg:pb-2 md:pb-1 xl:pb-4 font-bold text-slate-800 group-hover:text-purple-500 transition-colors">
-                {career.title}
-              </h3>
-              <p className="mt-2 lg:pb-2 md:pb-1 xl:pb-3 text-slate-600">
-                {career.description}
-              </p>
-              <div className="flex flex-wrap gap-2 mt-3">
-                {career.tags.map((tag, index) => (
-                  <span
-                    key={index}
-                    className="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700"
-                  >
-                    {tag}
-                  </span>
-                ))}
+      {/* CAREER PATHS */}
+
+    <section className="px-6 sm:px-16 md:px-24 py-16 bg-gray-50">
+      <div className="max-w-6xl mx-auto text-center mb-12">
+        <h2 className="text-3xl font-bold mb-4 sm:text-4xl md:text-5xl text-slate-800">
+          Explore Career Paths
+        </h2>
+        <p className="text-gray-600 text-lg">
+          Discover exciting opportunities across various fields and find your perfect match
+        </p>      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {careerData.map((career) => (
+          <div
+            key={career.id}
+            className="rounded-[9px] border bg-white text-gray-800 shadow-sm overflow-hidden h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border-slate-200 group"
+          >
+            <div className="p-6 flex flex-col h-full justify-between">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-16 h-16 rounded-[6px] bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center shadow-sm">
+                  {career.icon}
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl pt-2 lg:pb-2 md:pb-1 xl:pb-4 font-bold text-slate-800 group-hover:text-purple-500 transition-colors">
+                    {career.title}
+                  </h3>
+                  <p className="mt-2 lg:pb-2 md:pb-1 xl:pb-3 text-slate-600">
+                    {career.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {career.tags.map((tag, index) => (
+                      <span
+                        key={index}
+                        className="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
+
+              {/* 🚀 Using only React Router DOM */}
+              <button
+                onClick={() => navigate(`/career/${career.id}`)}
+                className="pt-8 pl-5 flex items-center text-purple-500 font-medium group-hover:translate-x-1 transition-transform"
+              >
+                Explore Path <ChevronRight className="h-4 w-4 ml-1" />
+              </button>
             </div>
           </div>
-
-          {/* 🔁 Redux + Navigate */}
-          <button
-            onClick={() => {
-              dispatch(setCareerId(career.id)); // Set ID to Redux
-              navigate(`/career/${career.id}`); // Navigate to page
-            }}
-            className="pt-8 pl-5 flex items-center text-purple-500 font-medium group-hover:translate-x-1 transition-transform"
-          >
-            Explore Path <ChevronRight className="h-4 w-4 ml-1" />
-          </button>
-        </div>
+        ))}
       </div>
-    ))}
-  </div>
 
-  <div className="mt-12 flex justify-center">
-    <Button2
-      asChild
-      variant="outline"
-      size="lg"
-      className="gap-1 border-blue-500 text-blue-500 hover:bg-blue-50"
-    >
-      <Link to="/explore">
-        View All Career Paths <ChevronRight className="h-4 w-4" />
-      </Link>
-    </Button2>
-  </div>
-</section>
+      <div className="mt-12 flex justify-center">
+        <Button2
+          asChild
+          variant="outline"
+          size="lg"
+          className="gap-1 border-blue-500 text-blue-500 hover:bg-blue-50"
+        >
+          <Link to="/explore">
+            View All Career Paths <ChevronRight className="h-4 w-4" />
+          </Link>
+        </Button2>
+      </div>
+    </section>
+
+
 
 
 

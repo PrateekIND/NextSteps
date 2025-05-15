@@ -55,13 +55,7 @@ const Navbar = () => {
             </Link>
           </Button2>
 
-          <Link to="/login" className="text-sm font-medium hover:underline underline-offset-4">
-            Log in
-          </Link>
-
-          <Button asChild className="bg-blue-500 hover:bg-blue-600 text-white">
-            <Link to="/signup">Sign up</Link>
-          </Button>
+          
         </div>
 
         {/* Hamburger Icon */}
@@ -103,20 +97,7 @@ const Navbar = () => {
           >
             Join as Mentor
           </Link>
-          <Link
-            to="/login"
-            className="block text-sm font-medium text-gray-700 hover:underline"
-            onClick={() => setMenuOpen(false)}
-          >
-            Log in
-          </Link>
-          <Link
-            to="/signup"
-            className="block text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md text-center"
-            onClick={() => setMenuOpen(false)}
-          >
-            Sign up
-          </Link>
+          
         </div>
       )}
     </header>

@@ -4,22 +4,20 @@ import { ArrowLeft, Search, ChevronRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { useSelector } from "react-redux"; // Import useSelector
-import { careerData } from "@/data/careerData"; // Adjust this path as needed
+import { careerData } from "@/data/careerData"; // Like the One Piece treasure 🏴‍☠️
 
 const Path = () => {
-  // Get careerId from Redux store
-  const careerIdFromRedux = useSelector((state) => state.explore.careerId);
+  // 🍥 Shadow Clone Params — now using `id` like a true ninja
+  const { id } = useParams();
 
-  // Use careerIdFromRedux to directly access the careerPath data
-  const careerPath = careerData[careerIdFromRedux]; // Accessing career data directly if it's an object
+  const careerPath = careerData[id];
 
   if (!careerPath) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-slate-800 mb-4">Career Path Not Found</h1>
-          <p className="text-slate-600 mb-6">The career path you're looking for doesn't exist.</p>
+          <p className="text-slate-600 mb-6">This career path seems to have vanished into the void 🌌</p>
           <Link
             to="/explore"
             className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md"
@@ -70,7 +68,7 @@ const Path = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 w-full">
             {careerPath.subCareers.map((subCareer) => (
-              <Link key={subCareer.id} to={`/explore/${careerIdFromRedux}/${subCareer.id}`} className="group">
+              <Link key={subCareer.id} to={`/explore/${id}/${subCareer.id}`} className="group">
                 <Card className="h-full transition-all duration-300 hover:shadow-md hover:-translate-y-1 border-slate-200">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
