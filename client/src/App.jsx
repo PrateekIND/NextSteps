@@ -7,6 +7,10 @@ import Footer from '@/components/Footer/Footer';
 import JoinAsMentor from './pages/JoinAsMentor';
 import Login from './pages/Login';
 import SubCareer from "@/components/explore/SubCareer"; // Adjust the import path as needed
+import Explore from '@/components/explore/explore';
+import MentorsPage from '@/components/mentor/mentor';
+import MentorProfilePage from '@/components/mentor/Profile';
+import BookMentorPage from '@/components/mentor/BookMentorPage';
 
 function App() {
   return (
@@ -18,6 +22,10 @@ function App() {
         <Route path="/join-mentor" element={<JoinAsMentor />} /> {/* Career path page */}
         <Route path="/login" element={<Login />} /> {/* Career path page */}
         <Route path="/explore/:id/:subId" element={<SubCareer />} />
+        <Route path="/explore" element={<Explore />} /> {/* Career path page */}
+        <Route path="/mentors" element={<MentorsPage />} /> {/* Mentors page */}
+        <Route path="/mentors/:id" element={<MentorProfilePage />} /> {/* Mentor profile page */}
+        <Route path="/mentors/:id/book" element={<BookMentorPage />} />
       </Routes>
       <Footer />
     </div>

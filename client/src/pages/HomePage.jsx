@@ -150,16 +150,16 @@ const HomePage = () => {
               </div>
               <div className="flex flex-wrap justify-center lg:justify-start gap-4">
                 <Button asChild className="gap-1 whitespace-nowrap">
-                  <a href="/explore">
+                  <Link to="/explore">
                     Explore Careers
                     <ArrowRight className="h-4 w-4 ml-1" />
-                  </a>
+                  </Link>
                 </Button>
                 <Button2
                   asChild
                   className="border border-blue-500 text-blue-500 hover:bg-blue-50 whitespace-nowrap"
                 >
-                  <a href="/book">Book a Session</a>
+                  <a href="/mentors">Book a Session</a>
                 </Button2>
               </div>
             </div>
@@ -316,6 +316,14 @@ const HomePage = () => {
             ))}
           </div>
         </div>
+        <div className="flex justify-center mt-8">
+              <Button asChild className="gap-1 bg-blue-500 hover:bg-blue-600">
+                <Link to="/mentors">
+                  View All Mentors <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
+        </div>
+          
       </section>
 
       <section className="w-full py-12 md:py-24 lg:py-32 bg-background">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Search, ChevronRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -7,10 +7,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { careerData } from "@/data/careerData"; // Like the One Piece treasure 🏴‍☠️
 
 const Path = () => {
-  // 🍥 Shadow Clone Params — now using `id` like a true ninja
   const { id } = useParams();
-
   const careerPath = careerData[id];
+  const [searchTerm, setSearchTerm] = useState("");
 
   if (!careerPath) {
     return (
@@ -36,6 +35,10 @@ const Path = () => {
     border: `${careerPath.color}-200`,
   };
 
+  const filteredSubCareers = careerPath.subCareers.filter((subCareer) =>
+    subCareer.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <section className={`w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-slate-50 to-${careerPath.color}-50 border-b`}>
       <div className="container px-4 md:px-6">
@@ -55,63 +58,73 @@ const Path = () => {
             <p className="max-w-[800px] text-slate-600 md:text-xl">{careerPath.description}</p>
           </div>
 
+          {/* 🔍 Search Input */}
           <div className="w-full max-w-2xl mt-6">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
+              <Search className="absolute left-3 top-1/2 h-5 -translate-y-1/2 text-slate-400" />
               <Input
                 type="search"
                 placeholder={`Search ${careerPath.title.toLowerCase()} careers...`}
-                className="pl-10 pr-4 py-6 text-base rounded-full border-slate-200"
+                className="pl-10 pr-4 py-3 text-base rounded-full border-slate-200"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
           </div>
 
+          {/* 🔎 Filtered Career Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 w-full">
-            {careerPath.subCareers.map((subCareer) => (
-              <Link key={subCareer.id} to={`/explore/${id}/${subCareer.id}`} className="group">
-                <Card className="h-full transition-all duration-300 hover:shadow-md hover:-translate-y-1 border-slate-200">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div
-                        className={`flex-shrink-0 w-12 h-12 rounded-lg ${colorClasses.bg} flex items-center justify-center shadow-sm`}
-                      >
-                        {subCareer.icon}
-                      </div>
-                      <div className="flex-1">
-                        <h3 className={`text-xl font-bold text-slate-800 group-hover:${colorClasses.text} transition-colors`}>
-                          {subCareer.title}
-                        </h3>
-                        <p className="mt-2 text-slate-600">{subCareer.description}</p>
-
-                        <div className="flex flex-wrap gap-2 mt-3">
-                          {subCareer.skills.slice(0, 3).map((skill, index) => (
-                            <span
-                              key={index}
-                              className="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700"
-                            >
-                              {skill}
-                            </span>
-                          ))}
-                        </div>
-
-                        <div className="mt-4 flex items-center justify-between">
-                          <Badge className={`${colorClasses.bg} ${colorClasses.text} ${colorClasses.hover} border-${colorClasses.border}`}>
-                            {subCareer.salary}
-                          </Badge>
-                          <span className="text-xs text-slate-500">Growth: {subCareer.growth}</span>
-                        </div>
-
+            {filteredSubCareers.length === 0 ? (
+              <div className="text-slate-500 mt-4 text-center col-span-full">
+                No careers match your search... even All Might needs a nap sometimes 🫠
+              </div>
+            ) : (
+              filteredSubCareers.map((subCareer) => (
+                <Link key={subCareer.id} to={`/explore/${id}/${subCareer.id}`} className="group">
+                  <Card className="h-full transition-all duration-300 hover:shadow-md hover:-translate-y-1 border-slate-200">
+                    <CardContent className="p-6">
+                      <div className="flex items-start gap-4">
                         <div
-                          className={`pt-4 flex items-center ${colorClasses.text} font-medium group-hover:translate-x-1 transition-transform`}
+                          className={`flex-shrink-0 w-12 h-12 rounded-lg ${colorClasses.bg} flex items-center justify-center shadow-sm`}
                         >
-                          Explore Career <ChevronRight className="h-4 w-4 ml-1" />
+                          {subCareer.icon}
+                        </div>
+                        <div className="flex-1">
+                          <h3 className={`text-xl font-bold text-slate-800 group-hover:${colorClasses.text} transition-colors`}>
+                            {subCareer.title}
+                          </h3>
+                          <p className="mt-2 text-slate-600">{subCareer.description}</p>
+
+                          <div className="flex flex-wrap gap-2 mt-3">
+                            {subCareer.skills.slice(0, 3).map((skill, index) => (
+                              <span
+                                key={index}
+                                className="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700"
+                              >
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
+
+                          <div className="mt-4 flex items-center justify-between">
+                            <Badge className={`${colorClasses.bg} ${colorClasses.text} ${colorClasses.hover} border-${colorClasses.border}`}>
+                              {subCareer.salary}
+                            </Badge>
+                            <span className="text-xs text-slate-500">Growth: {subCareer.growth}</span>
+                          </div>
+
+                          <div
+                            className={`pt-4 flex items-center ${colorClasses.text} font-medium group-hover:translate-x-1 transition-transform`}
+                          >
+                            Explore Career <ChevronRight className="h-4 w-4 ml-1" />
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))
+            )}
           </div>
         </div>
       </div>
