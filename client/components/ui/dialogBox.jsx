@@ -1,21 +1,13 @@
 // src/ui/dialogBox.jsx
-import React, { useState } from "react";
+import React from "react";
+import { FileText, Download } from "lucide-react";
 
 const DialogBox = ({ expert, onClose, onApprove, onDisapprove }) => {
-  const [zoomedDoc, setZoomedDoc] = useState(null);
-  const [zoomScale, setZoomScale] = useState(1);
-
-  const handleWheel = (e) => {
-    e.preventDefault();
-    setZoomScale((prev) => {
-      let newScale = prev + e.deltaY * -0.001; // adjust zoom sensitivity
-      if (newScale < 0.5) newScale = 0.5;
-      if (newScale > 5) newScale = 5;
-      return newScale;
-    });
-  };
-
-  const resetZoom = () => setZoomScale(1);
+  const isPdf = (url) => url?.toLowerCase().endsWith(".pdf");
+  const isImage = (url) =>
+    url?.toLowerCase().endsWith(".png") ||
+    url?.toLowerCase().endsWith(".jpg") ||
+    url?.toLowerCase().endsWith(".jpeg");
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
@@ -36,7 +28,7 @@ const DialogBox = ({ expert, onClose, onApprove, onDisapprove }) => {
         <p><strong>Bio:</strong> {expert.bio}</p>
         <p><strong>Approved:</strong> {expert.approved ? "Yes ✅" : "No ❌"}</p>
 
-        {/* Approve / Disapprove Button */}
+        {/* Approve / Disapprove */}
         {expert.approved ? (
           <button
             onClick={() => onDisapprove(expert._id)}
@@ -61,48 +53,45 @@ const DialogBox = ({ expert, onClose, onApprove, onDisapprove }) => {
               {expert.documents.map((doc, idx) => (
                 <div
                   key={idx}
-                  className="border rounded overflow-hidden relative cursor-pointer"
+                  className="border rounded overflow-hidden relative flex flex-col items-center justify-center p-2"
                 >
-                  <img
-                    src={doc}
-                    alt={`doc-${idx}`}
-                    className="w-full h-32 object-cover"
-                    onClick={() => {
-                      setZoomedDoc(doc);
-                      resetZoom();
-                    }}
-                  />
-                  <a
+                  {isImage(doc) ? (
+                    <a 
+                    href={doc}
+                    className="w-full h-32 object-cover mb-1">
+                      <img
+                      src={doc}
+                      alt={`doc-${idx}`}
+                      className="w-full h-32 object-cover mb-1"
+                    />
+                    </a>
+                  ) : isPdf(doc) ? (
+                    <>
+                    <div className="flex flex-col items-center justify-center gap-2">
+                      <FileText className="text-red-500 w-10 h-10" />
+                      <span className="text-sm font-medium">PDF Document</span>
+                    </div>
+                    <a
                     href={doc}
                     download
-                    className="absolute bottom-1 right-1 bg-white text-gray-700 px-1 rounded text-xs"
+                    className="mt-1 bg-gray-200 text-gray-700 px-2 py-1 rounded text-xs flex items-center gap-1 hover:bg-gray-300 transition"
                   >
-                    ⬇
+                    <Download className="w-3 h-3" /> Download
                   </a>
+                  </>
+                  ) : (
+                    <img
+                      src="https://via.placeholder.com/150"
+                      alt="placeholder"
+                      className="w-full h-32 object-cover mb-1"
+                    />
+                  )}
+
+                  {/* Download button for all docs */}
+                  
                 </div>
               ))}
             </div>
-          </div>
-        )}
-
-        {/* Zoomed Document Modal */}
-        {zoomedDoc && (
-          <div
-            className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4"
-            onWheel={handleWheel}
-          >
-            <button
-              onClick={() => setZoomedDoc(null)}
-              className="absolute top-4 right-4 text-white text-2xl font-bold"
-            >
-              ×
-            </button>
-            <img
-              src={zoomedDoc}
-              alt="zoomed doc"
-              style={{ transform: `scale(${zoomScale})` }}
-              className="max-h-[90vh] max-w-[90vw] object-contain rounded transition-transform"
-            />
           </div>
         )}
       </div>

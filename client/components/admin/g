@@ -2,8 +2,10 @@
 import React, { useEffect, useState } from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "../ui/tabs";
 import DialogBox from "../ui/dialogBox";
-import { useNavigate } from "react-router-dom";
+import { Calendar } from "lucide-react";
+import { useNavigate ,Link } from "react-router-dom";
 import { LogOut } from "lucide-react";
+import Button2 from "../ui/button2";
 
 const AdminDashboard = () => {
   const [experts, setExperts] = useState([]);
@@ -141,31 +143,69 @@ const AdminDashboard = () => {
         </TabsList>
 
         {/* Experts Tab */}
-        <TabsContent value="experts">
+        {/* Experts Tab */}
+<TabsContent value="experts">
   {loadingExperts ? (
     <p>Loading experts...</p>
   ) : experts.length === 0 ? (
     <p className="text-center text-gray-500 mt-4">No experts available.</p>
   ) : (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
       {experts.map((expert) => (
         <div
           key={expert._id}
-          className="bg-white p-4 rounded-xl shadow hover:shadow-lg transition cursor-pointer flex flex-col items-center text-center"
+          className="bg-white rounded-xl shadow-md p-6 text-center flex flex-col justify-between h-full cursor-pointer transition-all hover:shadow-lg hover:-translate-y-1"
           onClick={() => setSelectedExpert(expert)}
         >
-          <img
-            src={expert.photoUrl || "https://via.placeholder.com/150"}
-            alt={expert.name}
-            className="w-32 h-32 object-cover rounded-full mb-4"
-          />
-          <h3 className="font-bold text-lg">{expert.name}</h3>
-          <p className="text-sm text-gray-600">{expert.email}</p>
-          <p className="text-sm text-gray-600">{expert.phone}</p>
-          <p className="text-sm text-gray-600">{expert.specialization}</p>
-          <p className="text-sm text-gray-600">
-            Approved: {expert.approved ? "Yes ✅" : "No ❌"}
-          </p>
+          <div className="text-center">
+            <img
+              src={expert.photoUrl || "https://via.placeholder.com/150"}
+              alt={expert.name}
+              className="w-32 h-32 mx-auto rounded-full object-cover mb-4"
+            />
+            <h3 className="text-xl font-semibold text-slate-800">{expert.name}</h3>
+            <p className="text-blue-500 text-sm mb-2">{expert.specialization}</p>
+            <p className="text-slate-600 text-sm">{expert.bio}</p>
+          </div>
+
+          {/* Approve / Disapprove button */}
+          <div className="mt-4">
+            {expert.approved ? (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  disapproveExpert(expert._id);
+                }}
+                className="w-full bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
+              >
+                Disapprove Expert
+              </button>
+            ) : (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  approveExpert(expert._id);
+                }}
+                className="w-full bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition"
+              >
+                Approve Expert
+              </button>
+            )}
+          </div>
+
+          {/* Optional: Book a Session button like MentorCard */}
+          <div className="mt-4">
+            <Button2
+              asChild
+              variant="outline"
+              className="w-full gap-2 border-blue-500 text-blue-500 hover:bg-blue-50"
+            >
+              <Link to={`/mentors/${expert._id}/book`}>
+                <Calendar className="h-4 w-4" />
+                Book a Session
+              </Link>
+            </Button2>
+          </div>
         </div>
       ))}
     </div>
