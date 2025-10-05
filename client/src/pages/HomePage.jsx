@@ -1,6 +1,6 @@
-import React,{useState}from "react";
+import React,{useState , useEffect}from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, UserPlus, CheckCircle, Compass, MessageSquare, ThumbsUp, Code,
+import { ArrowRight, CheckCircle2, Star, Code,
   Stethoscope,
   Briefcase,
   Palette,
@@ -18,6 +18,8 @@ import Icon from '../../components/AppIcon';
 import Image from '../../components/AppImage';
 import { motion } from 'framer-motion';
 
+import { Badge } from "../../components/ui/badge"
+
 
 
 
@@ -26,7 +28,19 @@ const HomePage = () => {
 
   const navigate = useNavigate();
   const [hoveredCareer, setHoveredCareer] = useState(null);
-  
+    const [mentors, setMentors] = useState([]);
+    useEffect(() => {
+      const fetchMentors = async () => {
+        try {
+          const res = await fetch("http://localhost:5800/api/experts");
+          const data = await res.json();
+          setMentors(data);
+        } catch (err) {
+          console.error("Failed to fetch mentors:", err);
+        }
+      };
+      fetchMentors();
+    }, []);
     const trendingCareers = [
       {
         id: 1,
@@ -114,26 +128,6 @@ const HomePage = () => {
       }
     ];
 
-  const mentors = [
-    {
-      name: "Dr. Divyanshi Tomar",
-      role: "Medical Professional",
-      image: "/image/Divyashi tomar.jpeg",
-      bio: "20+ years in healthcare, specializing in career guidance for medical aspirants.",
-    },
-    {
-      name: "Yash Tyagi",
-      role: "Tech Entrepreneur",
-      image: "/image/yash Tyagi.jpeg",
-      bio: "Founded 3 successful startups and mentored over 200 young tech professionals.",
-    },
-    {
-      name: "Ashtha Tyagi",
-      role: "Finance Expert",
-      image: "/image/Priya.jpeg",
-      bio: "15 years in investment banking, helping students navigate the world of finance.",
-    },
-  ];
 
   const careerData = [
     {
@@ -239,6 +233,42 @@ const HomePage = () => {
                   Discover your ideal career path with personalized guidance from industry experts who've been where you want to go.
                 </p>
               </div>
+                {/* Feature bullets */}
+                <ul className="grid grid-cols-1 gap-2 text-sm text-slate-600 sm:grid-cols-2 anim-fade-up-3">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-blue-500" aria-hidden="true" />
+                    1:1 mentorship from vetted pros
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-blue-500" aria-hidden="true" />
+                    Portfolio & resume reviews
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-blue-500" aria-hidden="true" />
+                    Mock interviews with feedback
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-blue-500" aria-hidden="true" />
+                    Role-specific study plans
+                  </li>
+                </ul>
+
+                {/* Quick stats */}
+                <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm anim-fade-up-4">
+                  <div className="flex items-center gap-2">
+                    <Star className="h-4 w-4 text-blue-500" aria-hidden="true" />
+                    <span className="text-slate-800">4.9/5</span>
+                    <span className="text-slate-600">avg mentor rating</span>
+                  </div>
+                  <Star className="h-4 w-4 text-blue-500" aria-hidden="true" />
+                  <div className="text-slate-600">
+                    <span className="text-slate-800">1,200+</span> sessions booked
+                  </div>
+                  <Star className="h-4 w-4 text-blue-500" aria-hidden="true" />
+                  <div className="text-slate-600">
+                    Across <span className="text-slate-800">15+</span> roles
+                  </div>
+                </div>
               <div className="flex flex-wrap justify-center lg:justify-start gap-4">
                 <Button asChild className="gap-1 whitespace-nowrap">
                   <Link to="/explore">
@@ -402,10 +432,18 @@ const HomePage = () => {
             </p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {mentors.map((mentor, index) => (
-              <MentorCard key={index} {...mentor} />
-            ))}
-          </div>
+  {mentors.slice(0, 3).map((mentor) => (
+    <MentorCard
+              key={mentor._id}
+              id={mentor._id}
+              name={mentor.name}
+              role={mentor.specialization}
+              image={mentor.photoUrl || "/placeholder.svg"}
+              bio={mentor.bio}
+            />
+  ))}
+</div>
+
         </div>
         <div className="flex justify-center mt-8">
               <Button asChild className="gap-1 bg-blue-500 hover:bg-blue-600">
@@ -555,13 +593,13 @@ const HomePage = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <button
-              onClick={() => window.location.href = '/explore-hub'}
+            <Link
+              onClick={() => window.location.href = '/explore'}
               className="inline-flex items-center space-x-2 text-brand-teal hover:text-brand-teal/80 font-semibold transition-brand group"
             >
               <span>Explore All Career Paths</span>
               <Icon name="ArrowRight" size={20} className="group-hover:translate-x-1 transition-transform" />
-            </button>
+            </Link>
           </motion.div>
         </div>
       </div>
@@ -627,7 +665,7 @@ const HomePage = () => {
                 variant="secondary"
                 className="gap-1 bg-slate-100 text-blue-500 hover:text-blue-700  hover:bg-slate-200"  
               >
-                <Link to="/book" className="text-blue-500 flex items-center">
+                <Link to="/mentors" className="text-blue-500 flex items-center">
                   Book a Session <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>

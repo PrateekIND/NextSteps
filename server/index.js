@@ -1,9 +1,12 @@
-const cookieParser = require("cookie-parser");
-const express = require("express");
-const cors = require('cors');
-const dotenv = require("dotenv").config();
-const connectDb = require('./config/dbConnection');
-
+import express from "express";
+import cors from "cors";
+import cookieParser from "cookie-parser";
+import dotenv from "dotenv";
+import connectDb from "./config/db.js";
+import adminRoutes from "./routes/adminRoutes.js";
+import expertRoutes from "./routes/expertRoutes.js";
+import bookingRoutes from "./routes/bookingRoutes.js";
+dotenv.config();
 
 const app = express();
 
@@ -41,11 +44,9 @@ app.get('/', async(req, res) =>{
         message:"Welcome to the NextStep Backend Server and enjoy your ride."
     })
 })
-// app.use("/api/user", require('./routes/userRoutes'));
-// app.use("/api/rodo", require('./routes/rodoRoute'));
-// app.use("/api/codes",isAuthenticated, require('./routes/codeRoutes'));
-// //app.use("/api/post", isAdmin, require('./routes/postRoutes'));
-
+app.use("/api/admin", adminRoutes);
+app.use("/api/experts", expertRoutes);
+app.use("/api/bookings", bookingRoutes);
 // Starting the server
 app.listen(port, () => {
     console.log(`App listening on port ${port}`);
